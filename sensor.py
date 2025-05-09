@@ -69,8 +69,8 @@ class SoilSensor(Sensor):
     def display_status(self):
         print("=============================================")
         print(f"{self.type}\nLocation: {self.location}")
-        print(f"Moisture: {self._current_reading}%")
-        print(f"Temperature: {self.temperature}°C")
+        print(f"Moisture: {self._current_reading}% ({self.moisture_status})")
+        print(f"Temperature: {self.temperature}°C ({self.temperature_status})")
         print(f"pH Level: {self.ph_level}")
         print("=============================================")
 
@@ -82,7 +82,27 @@ class SoilSensor(Sensor):
             print("Warning: Soil is too wet!")
         else:
             print("Soil moisture is within the optimal range.")
-            
+
+    @property
+    def moisture_status(self):
+        """Returns a descriptive moisture condition."""
+        if self._current_reading < 30:
+            return "Dry"
+        elif self._current_reading > 70:
+            return "Too Wet"
+        else:
+            return "Optimal"
+
+    @property
+    def temperature_status(self):
+        """Returns a descriptive temperature condition."""
+        if self.temperature < 10:
+            return "Cold"
+        elif self.temperature > 35:
+            return "Hot"
+        else:
+            return "Moderate"
+
 proxy1 = Proximity_Sensor("ILYBBM", 34, True)
 proxy1.display_status()
 proxy1.is_too_close()

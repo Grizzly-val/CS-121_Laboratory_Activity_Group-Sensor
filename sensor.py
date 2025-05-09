@@ -135,10 +135,10 @@ class Color_Sensor(Sensor):
 
 
 print("TESTING PROXIMITY SENSOR")
-proxy1 = Proximity_Sensor("ILYBBM", 34, True)
+proxy1 = Proximity_Sensor("PROX0001", 34, True)
 proxy1.display_status()
 proxy1.is_too_close()
-proxy1.set_new_unit = "HAHAHA"
+proxy1.set_new_unit = "PROX0002"
 proxy1.display_status()
 
 print()

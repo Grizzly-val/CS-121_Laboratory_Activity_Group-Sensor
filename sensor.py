@@ -51,14 +51,46 @@ class Proximity_Sensor(Sensor):
                 print(f"Object is {self.get_distance - minimum_distance}cm away from the minimum distance")
         else:
             print("No object within proximity")
+            
+ # Subclass Ilao
+class SoilSensor(Sensor):
+    def __init__(self, location, moisture_level, temperature, ph_level):
+        super().__init__("Soil Sensor", "%", moisture_level)
+        self.location = location
+        self.temperature = temperature  # °C
+        self.ph_level = ph_level  # pH scale
 
+    def read_data(self, moisture, temperature, ph):
+        """Update the sensor readings."""
+        self._current_reading = moisture
+        self.temperature = temperature
+        self.ph_level = ph
 
+    def display_status(self):
+        print("=============================================")
+        print(f"{self.type}\nLocation: {self.location}")
+        print(f"Moisture: {self._current_reading}%")
+        print(f"Temperature: {self.temperature}°C")
+        print(f"pH Level: {self.ph_level}")
+        print("=============================================")
 
-
-
-
+    def check_soil_health(self):
+        """Evaluates whether soil conditions are within optimal ranges."""
+        if self._current_reading < 30:
+            print("Warning: Soil is too dry!")
+        elif self._current_reading > 70:
+            print("Warning: Soil is too wet!")
+        else:
+            print("Soil moisture is within the optimal range.")
+            
 proxy1 = Proximity_Sensor("ILYBBM", 34, True)
 proxy1.display_status()
 proxy1.is_too_close()
 proxy1.set_new_unit = "HAHAHA"
 proxy1.display_status()
+
+
+soil_sensor = SoilSensor("Garden", 45, 22, 6.5)
+soil_sensor.display_status()
+soil_sensor.check_soil_health()
+

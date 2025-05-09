@@ -30,7 +30,7 @@ class Proximity_Sensor(Sensor):
         return self._current_reading
     
     @property
-    def get_m_distance(self):
+    def get_meter_distance(self):
         return self.get_distance / 100
 
     def display_status(self):
@@ -51,7 +51,8 @@ class Proximity_Sensor(Sensor):
                 print(f"Object is {self.get_distance - minimum_distance}cm away from the minimum distance")
         else:
             print("No object within proximity")
-            
+
+
  # Subclass Ilao
 class SoilSensor(Sensor):
     def __init__(self, location, moisture_level, temperature, ph_level):
@@ -103,14 +104,54 @@ class SoilSensor(Sensor):
         else:
             return "Moderate"
 
+
+# Subclass Bernardo
+class Color_Sensor(Sensor):
+    def __init__(self, unit_number, color_detected, rgb_values):
+        super().__init__("Color_Sensor", unit_number, color_detected)
+        self.__rgb_values = rgb_values            
+
+    @property
+    def color(self):
+        return self._current_reading
+
+    @property
+    def rgb_values(self):
+        return self.__rgb_values
+  
+    def display_status(self):
+        print("========================================")
+        print(f"Unit Number: {self.get_unit}")
+        print(f"Detected Color: {self.color}")
+        print(f"RGB Values: {self.rgb_values}")
+        print("========================================")
+    
+    def is_primary_color(self):
+        primary_colors = {"Red", "Green", "Blue"}
+        if self.color.capitalize() in primary_colors:
+            print(f"{self.color} is a primary color.")
+        else:
+            print(f"{self.color} is not a primary color.")
+
+
+print("TESTING PROXIMITY SENSOR")
 proxy1 = Proximity_Sensor("ILYBBM", 34, True)
 proxy1.display_status()
 proxy1.is_too_close()
 proxy1.set_new_unit = "HAHAHA"
 proxy1.display_status()
 
+print()
 
+print("TESTING SOIL SENSOR")
 soil_sensor = SoilSensor("Garden", 45, 22, 6.5)
 soil_sensor.display_status()
 soil_sensor.check_soil_health()
+
+print()
+
+print("TESTING COLOR SENSOR")
+sensor = Color_Sensor("CS-1202", "Orange", {"R": 255, "G": 165, "B": 0})
+sensor.display_status()
+sensor.is_primary_color()
 

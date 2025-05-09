@@ -133,6 +133,44 @@ class Color_Sensor(Sensor):
         else:
             print(f"{self.color} is not a primary color.")
 
+# Subclass Laganzon
+class RFID_Sensor(Sensor):
+    def __init__(self, unit_number, tag_id, signal_strength):
+        super().__init__("RFID Sensor", unit_number, tag_id)
+        self.signal_strength = signal_strength  
+        self.__tag_id = tag_id  
+
+    @property
+    def tag_id(self):
+        return self.__tag_id
+
+    @tag_id.setter
+    def tag_id(self, new_tag_id):
+        self.__tag_id = new_tag_id
+
+    @property
+    def signal_strength_status(self):
+        if self.signal_strength < -80:
+            return "Signal is Weak"
+        elif self.signal_strength > -30:
+            return "Signal is strong"
+        else:
+            return "Signal is moderate"
+
+    def display_status(self):
+        print("=" * 45)
+        print(f"{self.type}\nUnit Number: {self.get_unit}\nRFID Tag ID: {self.tag_id}")
+        print(f"Signal Strength: {self.signal_strength} dB ({self.signal_strength_status})")
+        print("=" * 45)
+
+    def check_tag_readability(self):
+        if self.signal_strength < -80:
+            print("Warning: Signal strength is too weak, tag may not be readable.")
+        elif self.signal_strength > -30:
+            print("RFID tag is easily readable.")
+        else:
+            print("RFID tag is moderately readable.")
+
 
 print("TESTING PROXIMITY SENSOR")
 proxy1 = Proximity_Sensor("PROX0001", 34, True)
@@ -154,4 +192,9 @@ print("TESTING COLOR SENSOR")
 sensor = Color_Sensor("CS-1202", "Orange", {"R": 255, "G": 165, "B": 0})
 sensor.display_status()
 sensor.is_primary_color()
+
+print("TESTING RFID SENSOR")
+rfid_sensor = RFID_Sensor("RFID-001", "TAG123456789", -55)
+rfid_sensor.display_status()
+rfid_sensor.check_tag_readability()
 

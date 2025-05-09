@@ -7,10 +7,10 @@ class Sensor:
         self._current_reading = current_reading     #   - :  Protected Attribute. Can be directly accessed, but labeled as protected.
     
     @property
-    def unit(self):
+    def get_unit(self):
         return self.__unit
     
-    @unit.setter
+    @get_unit.setter
     def set_new_unit(self, new_unit):
         self.__unit = new_unit
         
@@ -23,24 +23,21 @@ class Sensor:
 class Proximity_Sensor(Sensor):
     def __init__(self, unit_number, distance_reading, presence):
         super().__init__("Proximity Sensor", unit_number, distance_reading)
-        self._presence = presence
+        self.presence = presence
 
     @property
-    def distance(self):
+    def get_distance(self):
         return self._current_reading
     
     @property
-    def presence(self):
-        return self._presence
-    
     def get_m_distance(self):
-        return self.distance / 100
+        return self.get_distance / 100
 
     def display_status(self):
         print("=============================================")
-        print(f"{self.type}\nUnit Number: {self.unit}\nObject Detected: {self.presence}")
+        print(f"{self.type}\nUnit Number: {self.get_unit}\nObject Detected: {self.presence}")
         if self.presence == True:
-            print(f"Distance: {self.distance}cm")
+            print(f"Distance: {self.get_distance}cm")
         else:
             print(f"Distance: N/A")
         print("=============================================")
@@ -48,10 +45,10 @@ class Proximity_Sensor(Sensor):
     def is_too_close(self):
         minimum_distance = 20 # cm
         if self.presence == True:
-            if self.distance <= minimum_distance:
+            if self.get_distance <= minimum_distance:
                 print(f"Object too close!")
             else:
-                print(f"Object is {self.distance - minimum_distance}cm away from the minimum distance")
+                print(f"Object is {self.get_distance - minimum_distance}cm away from the minimum distance")
         else:
             print("No object within proximity")
 

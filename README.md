@@ -48,7 +48,7 @@ The program includes **robust error handling** for unexpected or invalid inputs 
 
 3. **Select a specific sensor** from the chosen type. Each sensor stores unique data.
 
-4. **Choose a method** (e.g., `display_details()` or `display_status()`) to execute and view sensor output.
+4. **Choose a method** (e.g., `display_status()`) to execute and view sensor output.
 
 ---
 

@@ -38,7 +38,7 @@ The program includes **robust error handling** for unexpected or invalid inputs 
 
 ## ▶️ How to Run the Program
 ### Option A: Install `sensor.py` from our repository and run it in an IDE in your computer
-### Option B: Copy and paste the code from `sensor.py` into an online Python compiler like Replit or Google Colab (no installation needed)
+### Option B: Copy and paste the code from `sensor.py` into an online Python compiler like Replit or Programiz (no installation needed)
 ## Using the Program
 1. **Run `sensor.py`.**  
 2. **Choose a sensor type:**  

@@ -1,5 +1,7 @@
 # CS-121_Laboratory_Activity_Group-Sensor
 Project Title: Classroom of the Sensors
+python file sensor.py contains the source code of our group system
+pdf file UML_Class_Diagram.pdf contains the Class Diagram for our program
 
 Members:
 Bernardo, Xiamara
@@ -16,4 +18,8 @@ How to run the program?
 3. Lastly, after a specific sensor has been selected, the user can then select which process(method), the sensor will do.
 This program is written with error handling so unexpected inputs such as wrong int inputs, string, and blank inputs will not lead to errors.
 
-This program is a collaborative project among our team's group members. Each subclass was created and conditioned for the parent class that was created at the start of this program's creation. Each member deserves an acknowledgement as this project wouldn't have seen its completion without our individual and group effort. Additionally, our group would like to mention Lucidchart, the tool we used to create the UML Class Diagram for our system with ease.
+This program is a collaborative project among our team's group members. Each subclass was created and conditioned for the parent class that was created at the start of this program's creation. Each member deserves an acknowledgement as this project wouldn't have seen its completion without our individual and group effort. It is understood by our group that this project was assigned to us by our professor to apply and improve our newly acquired knowledge which is Python Object-Oriented Programming. Additionally, our group would like to mention Lucidchart, the tool we used to create the UML Class Diagram for our system with ease.
+
+CS-1202
+Group 4: Sensor
+Professor: John Richard Esguerra

@@ -172,29 +172,417 @@ class RFID_Sensor(Sensor):
             print("RFID tag is moderately readable.")
 
 
-print("TESTING PROXIMITY SENSOR")
-proxy1 = Proximity_Sensor("PROX0001", 34, True)
-proxy1.display_status()
-proxy1.check_distance()
-proxy1.set_new_unit = "PROX0002"
-proxy1.display_status()
 
-print()
 
-print("TESTING SOIL SENSOR")
-soil_sensor = SoilSensor("Garden", 45, 22, 6.5)
-soil_sensor.display_status()
-soil_sensor.check_soil_health()
 
-print()
+proxy1 = Proximity_Sensor("PROX0001", 19, True)
+proxy2 = Proximity_Sensor("PROX1251", 285, True)
+proxy3 = Proximity_Sensor("PROX3661", 0, False)
+soil1 = SoilSensor("Garden", 45, 22, 6.5)
+soil2 = SoilSensor("Backyard", 42, 20, 6.3)
+color1 = Color_Sensor("CS-1202", "Orange", {"R": 255, "G": 165, "B": 0})
+color2 = Color_Sensor("CS-1203", "Blue", {"R": 0, "G": 255, "B": 255})
+rfid1 = RFID_Sensor("RFID-001", "TAG123456789", -55)
+rfid2 = RFID_Sensor("RFID-002", "TAG987654321", -27)
 
-print("TESTING COLOR SENSOR")
-sensor = Color_Sensor("CS-1202", "Orange", {"R": 255, "G": 165, "B": 0})
-sensor.display_status()
-sensor.is_primary_color()
 
-print("TESTING RFID SENSOR")
-rfid_sensor = RFID_Sensor("RFID-001", "TAG123456789", -55)
-rfid_sensor.display_status()
-rfid_sensor.check_tag_readability()
 
+
+
+def proximity_sensor1():
+    while True:
+        print("Sensor functions:")
+        print("1. Display Details\n2. Check Distance\n3. Convert to Meters")
+        try:
+            choice_function = int(input("Pick from 1 to 3 (0 to return): "))
+            if choice_function not in [0, 1, 2, 3]:
+                raise ValueError("Invalid Input")
+            else:
+                match choice_function:
+                    case 1:
+                        print()
+                        proxy1.display_status()
+                        print()
+                    case 2:
+                        print()
+                        proxy1.check_distance()
+                        print()
+                    case 3:
+                        print()
+                        print(f"Distance in meters({proxy1.get_distance}cm): {proxy1.get_meter_distance}m")
+                        print()
+                    case 0:
+                        print("Returning...")
+                        break
+        except ValueError as e:
+            print()
+            print(e)
+            print("Please enter a Valid Input")
+    print("Sending you back...\n")
+
+def proximity_sensor2():
+    while True:
+        print("Sensor functions:")
+        print("1. Display Details\n2. Check Distance\n3. Convert to Meters")
+        try:
+            choice_function = int(input("Pick from 1 to 3 (0 to return): "))
+            if choice_function not in [0, 1, 2, 3]:
+                raise ValueError("Invalid Input")
+            else:
+                match choice_function:
+                    case 1:
+                        print()
+                        proxy2.display_status()
+                        print()
+                    case 2:
+                        print()
+                        proxy2.check_distance()
+                        print()
+                    case 3:
+                        print()
+                        print(f"Distance in meters({proxy2.get_distance}cm): {proxy2.get_meter_distance}m")
+                        print()
+                    case 0:
+                        print("Returning...")
+                        break
+        except ValueError as e:
+            print()
+            print(e)
+            print("Please enter a Valid Input")
+    print("Sending you back...\n")
+    
+def proximity_sensor3():
+    while True:
+        print("Sensor functions:")
+        print("1. Display Details\n2. Check Distance\n3. Convert to Meters")
+        try:
+            choice_function = int(input("Pick from 1 to 3 (0 to return): "))
+            if choice_function not in [0, 1, 2, 3]:
+                raise ValueError("Invalid Input")
+            else:
+                match choice_function:
+                    case 1:
+                        proxy3.display_status()
+                    case 2:
+                        proxy3.check_distance()
+                    case 3:
+                        print(f"Distance in meters({proxy3.get_distance}cm): {proxy3.get_meter_distance}m")
+                    case 0:
+                        print("Returning...")
+                        break
+        except ValueError as e:
+            print
+            print(e)
+            print("Please enter a Valid Input")
+    print("Sending you back...\n")
+
+def choose_proximity_sensor():
+    while True:
+        try:
+            print("\nWhich proximity sensor would you like to check?")
+            print("Proximity Sensor 1\nProximity Sensor 2\nProximity Sensor 3")
+            choose_prox = int(input("Pick from 1 to 3 (0 to return): "))
+            if choose_prox not in [0, 1, 2, 3]:
+                raise ValueError("Invalid Input")
+            else:
+                match choose_prox:
+                    case 1:
+                        print()
+                        proximity_sensor1()
+                    case 2:
+                        print()
+                        proximity_sensor2()
+                    case 3:
+                        print()
+                        proximity_sensor3()
+                    case 0:
+                        print("Returning...")
+                        break
+        except ValueError as e:
+            print()
+            print(e)
+            print("Please enter a Valid Input")
+
+def soil_sensor1():
+    while True:
+        print("Sensor functions:")
+        print("1. Display Details\n2. Check Soil Health\n3. Check Moisture Status\n4. Check Temperature Status")
+        try:
+            choice_function = int(input("Pick from 1 to 4 (0 to return): "))
+            if choice_function not in [0, 1, 2, 3, 4]:
+                raise ValueError("Invalid Input")
+            else:
+                match choice_function:
+                    case 1:
+                        print()
+                        soil1.display_status()
+                        print()
+                    case 2:
+                        print()
+                        soil1.check_soil_health()
+                        print()
+                    case 3:
+                        print()
+                        print(soil1.moisture_status)
+                        print()
+                    case 4:
+                        print()
+                        print(soil1.temperature_status)
+                        print()
+                    case 0:
+                        print("Returning...")
+                        break
+        except ValueError as e:
+            print
+            print(e)
+            print("Please enter a Valid Input")
+    print("Sending you back...\n")
+
+def soil_sensor2():
+    while True:
+        print("Sensor functions:")
+        print("1. Display Details\n2. Check Soil Health\n3. Check Moisture Status\n4. Check Temperature Status")
+        try:
+            choice_function = int(input("Pick from 1 to 4 (0 to return): "))
+            if choice_function not in [0, 1, 2, 3, 4]:
+                raise ValueError("Invalid Input")
+            else:
+                match choice_function:
+                    case 1:
+                        print()
+                        soil2.display_status()
+                        print()
+                    case 2:
+                        print()
+                        soil2.check_soil_health()
+                        print()
+                    case 3:
+                        print()
+                        print(soil2.moisture_status)
+                        print()
+                    case 4:
+                        print()
+                        print(soil2.temperature_status)
+                        print()
+                    case 0:
+                        print("Returning...")
+                        break
+        except ValueError as e:
+            print
+            print(e)
+            print("Please enter a Valid Input")
+    print("Sending you back...\n")
+
+def choose_soil_sensor():
+    while True:
+        try:
+            print("\nWhich soil sensor would you like to check?")
+            print("Soil Sensor 1\nSoil Sensor 2")
+            choose_prox = int(input("Pick from 1 to 2 (0 to return): "))
+            if choose_prox not in [0, 1, 2]:
+                raise ValueError("Invalid Input")
+            else:
+                match choose_prox:
+                    case 1:
+                        print()
+                        soil_sensor1()
+                    case 2:
+                        print()
+                        soil_sensor2()
+                    case 0:
+                        print("Returning...")
+                        break
+        except ValueError as e:
+            print()
+            print(e)
+            print("Please enter a Valid Input")
+
+def color_sensor1():
+    while True:
+        print("Sensor functions:")
+        print("1. Display Details\n2. Check if Primary Color")
+        try:
+            choice_function = int(input("Pick from 1 to 2 (0 to return): "))
+            if choice_function not in [0, 1, 2]:
+                raise ValueError("Invalid Input")
+            else:
+                match choice_function:
+                    case 1:
+                        print()
+                        color1.display_status()
+                        print()
+                    case 2:
+                        print()
+                        color1.is_primary_color()
+                        print()
+                    case 0:
+                        print("Returning...")
+                        break
+        except ValueError as e:
+            print()
+            print(e)
+            print("Please enter a Valid Input")
+    print("Sending you back...\n")
+
+def color_sensor2():
+    while True:
+        print("Sensor functions:")
+        print("1. Display Details\n2. Check if Primary Color")
+        try:
+            choice_function = int(input("Pick from 1 to 2 (0 to return): "))
+            if choice_function not in [0, 1, 2]:
+                raise ValueError("Invalid Input")
+            else:
+                match choice_function:
+                    case 1:
+                        print()
+                        color2.display_status()
+                        print()
+                    case 2:
+                        print()
+                        color2.is_primary_color()
+                        print()
+                    case 0:
+                        print("Returning...")
+                        break
+        except ValueError as e:
+            print()
+            print(e)
+            print("Please enter a Valid Input")
+    print("Sending you back...\n")
+
+def choose_color_sensor():
+    while True:
+        try:
+            print("\nWhich color sensor would you like to check?")
+            print("Color Sensor 1\nColor Sensor 2")
+            choose_prox = int(input("Pick from 1 to 2 (0 to return): "))
+            if choose_prox not in [0, 1, 2]:
+                raise ValueError("Invalid Input")
+            else:
+                match choose_prox:
+                    case 1:
+                        print()
+                        color_sensor1()
+                    case 2:
+                        print()
+                        color_sensor2()
+                    case 0:
+                        print("Returning...")
+                        break
+        except ValueError as e:
+            print()
+            print(e)
+            print("Please enter a Valid Input")
+
+def rfid_sensor1():
+    while True:
+        print("Sensor functions:")
+        print("1. Display Details\n2. Check Signal Strength Status\n3. Check Tag Readability")
+        try:
+            choice_function = int(input("Pick from 1 to 3 (0 to return): "))
+            if choice_function not in [0, 1, 2, 3]:
+                raise ValueError("Invalid Input")
+            else:
+                match choice_function:
+                    case 1:
+                        print()
+                        rfid1.display_status()
+                        print()
+                    case 2:
+                        print()
+                        print(rfid1.signal_strength_status)
+                        print()
+                    case 3:
+                        print()
+                        rfid1.check_tag_readability()
+                        print()
+                    case 0:
+                        print("Returning...")
+                        break
+        except ValueError as e:
+            print
+            print(e)
+            print("Please enter a Valid Input")
+    print("Sending you back...\n")
+
+def rfid_sensor2():
+    while True:
+        print("Sensor functions:")
+        print("1. Display Details\n2. Check Signal Strength Status\n3. Check Tag Readability")
+        try:
+            choice_function = int(input("Pick from 1 to 3 (0 to return): "))
+            if choice_function not in [0, 1, 2, 3]:
+                raise ValueError("Invalid Input")
+            else:
+                match choice_function:
+                    case 1:
+                        print()
+                        rfid2.display_status()
+                        print()
+                    case 2:
+                        print()
+                        print(rfid2.signal_strength_status)
+                        print()
+                    case 3:
+                        print()
+                        rfid2.check_tag_readability()
+                        print()
+                    case 0:
+                        print("Returning...")
+                        break
+        except ValueError as e:
+            print
+            print(e)
+            print("Please enter a Valid Input")
+    print("Sending you back...\n")
+
+def choose_rfid_sensor():
+    while True:
+        try:
+            print("\nWhich RFID sensor would you like to check?")
+            print("RFID Sensor 1\nRFID Sensor 2")
+            choose = int(input("Pick from 1 to 2 (0 to return): "))
+            if choose not in [0, 1, 2]:
+                raise ValueError("Invalid Input")
+            else:
+                match choose:
+                    case 1:
+                        print()
+                        rfid_sensor1()
+                    case 2:
+                        print()
+                        rfid_sensor2()
+                    case 0:
+                        print("Returning...")
+                        break
+        except ValueError as e:
+            print()
+            print(e)
+            print("Please enter a Valid Input")
+
+while True:
+    try:
+        print("Which sensor would you like to check?")
+        print("1. Proximity Sensor\n2. Soil Sensor\n3. Color Sensor\n4. RFID Sensor")
+        choice = int(input("Pick from 1 to 4 (0 to exit): "))
+        if choice not in [0, 1, 2, 3, 4]:
+            raise ValueError("Invalid Input")
+        else:
+            match choice:
+                case 1:
+                    choose_proximity_sensor()
+                case 2:
+                    choose_soil_sensor()
+                case 3:
+                    choose_color_sensor()
+                case 4:
+                    choose_rfid_sensor()
+                case 0:
+                    print("Exiting...")
+                    break
+    except ValueError as e:
+        print()
+        print(e)
+        print("Please enter a Valid Input")
+        print()

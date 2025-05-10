@@ -42,13 +42,13 @@ class Proximity_Sensor(Sensor):
             print(f"Distance: N/A")
         print("=============================================")
 
-    def is_too_close(self):
+    def check_distance(self):
         minimum_distance = 20 # cm
         if self.presence == True:
             if self.get_distance <= minimum_distance:
                 print(f"Object too close!")
             else:
-                print(f"Object is {self.get_distance - minimum_distance}cm away from the minimum distance")
+                print(f"Object is {self.get_distance - minimum_distance}cm away from the minimum distance ({self.get_distance})")
         else:
             print("No object within proximity")
 
@@ -175,7 +175,7 @@ class RFID_Sensor(Sensor):
 print("TESTING PROXIMITY SENSOR")
 proxy1 = Proximity_Sensor("PROX0001", 34, True)
 proxy1.display_status()
-proxy1.is_too_close()
+proxy1.check_distance()
 proxy1.set_new_unit = "PROX0002"
 proxy1.display_status()
 

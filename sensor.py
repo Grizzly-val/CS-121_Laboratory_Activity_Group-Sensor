@@ -136,8 +136,7 @@ class Color_Sensor(Sensor):
 # Subclass Laganzon
 class RFID_Sensor(Sensor):
     def __init__(self, unit_number, tag_id, signal_strength):
-        super().__init__("RFID Sensor", unit_number, tag_id)
-        self.signal_strength = signal_strength  
+        super().__init__("RFID Sensor", unit_number, signal_strength)
         self.__tag_id = tag_id  
 
     @property
@@ -147,6 +146,10 @@ class RFID_Sensor(Sensor):
     @tag_id.setter
     def tag_id(self, new_tag_id):
         self.__tag_id = new_tag_id
+
+    @property
+    def signal_strength(self):
+        return self._current_reading
 
     @property
     def signal_strength_status(self):

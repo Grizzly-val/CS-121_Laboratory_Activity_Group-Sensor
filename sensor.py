@@ -48,7 +48,7 @@ class Proximity_Sensor(Sensor):
             if self.get_distance <= minimum_distance:
                 print(f"Object too close!")
             else:
-                print(f"Object is {self.get_distance - minimum_distance}cm away from the minimum distance ({self.get_distance})")
+                print(f"Object is {self.get_distance - minimum_distance}cm away from the minimum distance ({self.get_distance}cm)")
         else:
             print("No object within proximity")
 

@@ -55,9 +55,7 @@ The program includes **robust error handling** for unexpected or invalid inputs 
 
 ## 🤝 Acknowledgments
 
-This is a collaborative project completed by all group members. Each member contributed to the development of both the parent class and respective subclasses. We applied our understanding of **Object-Oriented Programming (OOP)** in Python to build this system.
-
-We also used **Lucidchart** to design the UML Class Diagram for better visualization and understanding of our class relationships.
+This program is a collaborative project among our team's group members. Each subclass was created and conditioned for the parent class that was created at the start of this program's creation. Each member deserves an acknowledgement as this project wouldn't have seen its completion without our individual and group effort. It is understood by our group that this project was assigned to us by our professor to apply and improve our newly acquired knowledge which is Python Object-Oriented Programming. Additionally, our group would like to mention ***Lucidchart***, the tool we used to create the UML Class Diagram for our system with ease.
 
 ---
 

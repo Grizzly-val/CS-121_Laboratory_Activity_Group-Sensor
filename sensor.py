@@ -221,6 +221,7 @@ def proximity_sensor1():
             print()
             print(e)
             print("Please enter a Valid Input")
+            print()
     print("Sending you back...\n")
 
 def proximity_sensor2():
@@ -252,6 +253,7 @@ def proximity_sensor2():
             print()
             print(e)
             print("Please enter a Valid Input")
+            print()
     print("Sending you back...\n")
     
 def proximity_sensor3():
@@ -265,18 +267,25 @@ def proximity_sensor3():
             else:
                 match choice_function:
                     case 1:
+                        print()
                         proxy3.display_status()
+                        print()
                     case 2:
+                        print()
                         proxy3.check_distance()
+                        print()
                     case 3:
+                        print()
                         print(f"Distance in meters({proxy3.get_distance}cm): {proxy3.get_meter_distance}m")
+                        print()
                     case 0:
                         print("Returning...")
                         break
         except ValueError as e:
-            print
+            print()
             print(e)
             print("Please enter a Valid Input")
+            print()
     print("Sending you back...\n")
 
 def choose_proximity_sensor():
@@ -300,11 +309,13 @@ def choose_proximity_sensor():
                         proximity_sensor3()
                     case 0:
                         print("Returning...")
+                        print()
                         break
         except ValueError as e:
             print()
             print(e)
             print("Please enter a Valid Input")
+            print()
 
 def soil_sensor1():
     while True:
@@ -336,9 +347,10 @@ def soil_sensor1():
                         print("Returning...")
                         break
         except ValueError as e:
-            print
+            print()
             print(e)
             print("Please enter a Valid Input")
+            print()
     print("Sending you back...\n")
 
 def soil_sensor2():
@@ -371,9 +383,10 @@ def soil_sensor2():
                         print("Returning...")
                         break
         except ValueError as e:
-            print
+            print()
             print(e)
             print("Please enter a Valid Input")
+            print()
     print("Sending you back...\n")
 
 def choose_soil_sensor():
@@ -394,11 +407,13 @@ def choose_soil_sensor():
                         soil_sensor2()
                     case 0:
                         print("Returning...")
+                        print()
                         break
         except ValueError as e:
             print()
             print(e)
             print("Please enter a Valid Input")
+            print()
 
 def color_sensor1():
     while True:
@@ -425,6 +440,7 @@ def color_sensor1():
             print()
             print(e)
             print("Please enter a Valid Input")
+            print()
     print("Sending you back...\n")
 
 def color_sensor2():
@@ -452,6 +468,7 @@ def color_sensor2():
             print()
             print(e)
             print("Please enter a Valid Input")
+            print()
     print("Sending you back...\n")
 
 def choose_color_sensor():
@@ -472,11 +489,13 @@ def choose_color_sensor():
                         color_sensor2()
                     case 0:
                         print("Returning...")
+                        print()
                         break
         except ValueError as e:
             print()
             print(e)
             print("Please enter a Valid Input")
+            print()
 
 def rfid_sensor1():
     while True:
@@ -504,9 +523,10 @@ def rfid_sensor1():
                         print("Returning...")
                         break
         except ValueError as e:
-            print
+            print()
             print(e)
             print("Please enter a Valid Input")
+            print()
     print("Sending you back...\n")
 
 def rfid_sensor2():
@@ -535,9 +555,10 @@ def rfid_sensor2():
                         print("Returning...")
                         break
         except ValueError as e:
-            print
+            print()
             print(e)
             print("Please enter a Valid Input")
+            print()
     print("Sending you back...\n")
 
 def choose_rfid_sensor():
@@ -558,11 +579,13 @@ def choose_rfid_sensor():
                         rfid_sensor2()
                     case 0:
                         print("Returning...")
+                        print()
                         break
         except ValueError as e:
             print()
             print(e)
             print("Please enter a Valid Input")
+            print()
 
 while True:
     try:

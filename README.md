@@ -4,10 +4,10 @@ python file sensor.py contains the source code of our group system
 pdf file UML_Class_Diagram.pdf contains the Class Diagram for our program
 
 Members:
-Bernardo, Xiamara
-Donatos, Trixter Lanz
-Ilao, Kent Patrick
-Laganzon, Adrian
+Bernardo, Xiamara (N/A)
+Donatos, Trixter Lanz (Grizzly-val)
+Ilao, Kent Patrick (eequen)
+Laganzon, Adrian (DIAN0402)
 
 Program overview:
 This is a program features multiple sensors that inherit from the Parent Sensor Class. The Sensor class has the attributes; (1) type for the type of sensor a sensor is, (2) unit for the unit number or the identification number of a specific sensor, (3) current reading for the current reading of a specific sensor. Our team created a subclass sensor of Proximity Sensor, Soil Sensor, Color Sensor, and RFID Sensor. Thus, the current reading can be distance(centimeter), moisture level(%), color(r/g/b), and signal(dB). You can display details of each sensors using the method display_details() which is an abstract method of the Parent class. The function display_status() is an abstract method in the parent class, so the user has the option to display the status of any of the sensors available.

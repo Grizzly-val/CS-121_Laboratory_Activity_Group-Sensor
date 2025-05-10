@@ -29,8 +29,7 @@ We created **four sensor subclasses**:
 - **RFIDSensor** – Measures signal strength in decibels (dB)  
 
 Each sensor implements:
-- `display_details()` – An abstract method to show detailed sensor information  
-- `display_status()` – Another abstract method that lets the user check the sensor's status  
+- `display_status()` – An abstract method that lets the user check the sensor's status
 
 The program includes **robust error handling** for unexpected or invalid inputs (e.g., incorrect numbers, strings, blank input).
 
